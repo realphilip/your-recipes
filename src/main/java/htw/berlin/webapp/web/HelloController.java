@@ -1,4 +1,4 @@
-package htw.berlin.webapp;
+package htw.berlin.webapp.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
