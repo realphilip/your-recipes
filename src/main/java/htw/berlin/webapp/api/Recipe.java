@@ -1,13 +1,15 @@
 package htw.berlin.webapp.api;
 
+import java.util.ArrayList;
+
 public class Recipe {
 
     private final Long id;
     private final String name;
-    private final String ingredients;
-    private final String instructions;
+    private final ArrayList<String> ingredients;
+    private final ArrayList<String> instructions;
 
-    public Recipe(Long id, String name, String ingredients, String instructions) {
+    public Recipe(Long id, String name, ArrayList<String> ingredients, ArrayList<String> instructions) {
         this.id = id;
         this.name = name;
         this.ingredients = ingredients;
@@ -22,7 +24,7 @@ public class Recipe {
         return name;
     }
 
-    public String getIngredients() { return ingredients; }
+    public ArrayList<String> getIngredients() { return ingredients; }
 
-    public String getInstructions() { return instructions; }
+    public ArrayList<String> getInstructions() { return instructions; }
 }

@@ -11,3 +11,5 @@ Tasks:
 2. Create recipe
 3. Distinguish between Ingredients and Instructions
 4. Store and view recipes for each user
+
+Deployed to Heroku. PostgresSQL Database connected. 
