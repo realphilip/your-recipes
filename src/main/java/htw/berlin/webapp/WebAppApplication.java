@@ -1,4 +1,4 @@
-package htw.berlin.webapp.web;
+package htw.berlin.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

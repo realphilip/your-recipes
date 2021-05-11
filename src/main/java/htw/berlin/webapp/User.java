@@ -1,4 +1,4 @@
-package htw.berlin.webapp.api;
+package htw.berlin.webapp;
 
 public class User {
 //
