@@ -1,13 +1,23 @@
-package htw.berlin.webapp.api;
+package htw.berlin.webapp;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+
+@Entity
 public class Recipe {
 
-    private final Long id;
-    private final String name;
-    private final ArrayList<String> ingredients;
-    private final ArrayList<String> instructions;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  Long id;
+    private  String name;
+    @ElementCollection
+    private  ArrayList<String> ingredients;
+    @ElementCollection
+    private  ArrayList<String> instructions;
+
+    public Recipe(){
+    }
 
     public Recipe(Long id, String name, ArrayList<String> ingredients, ArrayList<String> instructions) {
         this.id = id;
