@@ -1,11 +1,11 @@
-package htw.berlin.webapp;
+package htw.berlin.webapp.service;
 
-import htw.berlin.webapp.Recipe;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
+
 
 }
 
