@@ -1,6 +1,4 @@
-package htw.berlin.webapp.service;
-
-import java.util.ArrayList;
+package htw.berlin.webapp;
 
 public class User {
 //

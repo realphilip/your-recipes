@@ -1,4 +1,4 @@
-package htw.berlin.webapp.service;
+package htw.berlin.webapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

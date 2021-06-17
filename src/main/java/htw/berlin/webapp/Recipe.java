@@ -1,4 +1,4 @@
-package htw.berlin.webapp.service;
+package htw.berlin.webapp;
 
 import javax.persistence.*;
 import java.util.ArrayList;
