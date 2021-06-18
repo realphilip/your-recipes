@@ -18,7 +18,7 @@ public class RecipeService {
     }
 
     public ArrayList<Recipe> getAllRecipesAsList(){
-        ArrayList allRecipesAsList = new ArrayList<Recipe>();
+        ArrayList<Recipe> allRecipesAsList = new ArrayList<>();
         var repositoryContent = recipeRepository.findAll();
         repositoryContent.forEach(allRecipesAsList:: add);
         return allRecipesAsList;

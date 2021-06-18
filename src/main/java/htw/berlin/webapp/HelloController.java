@@ -26,10 +26,4 @@ public class HelloController {
             Long recipeId = Long.parseLong(inputId);
             recipeService.deleteById(recipeId);
         }
-
-        @RequestMapping("/")
-        public String index() {
-            return "Welcome to Your Recipes";
-
-        }
     }

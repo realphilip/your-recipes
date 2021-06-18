@@ -1,8 +1,6 @@
 package htw.berlin.webapp;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-
 
 @Entity
 public class Recipe {
@@ -10,16 +8,15 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
+
     private  String name;
-    @ElementCollection
-    private  ArrayList<String> ingredients;
-    @ElementCollection
-    private  ArrayList<String> instructions;
+    private  String ingredients;
+    private  String instructions;
 
     public Recipe(){
     }
 
-    public Recipe(Long id, String name, ArrayList<String> ingredients, ArrayList<String> instructions) {
+    public Recipe(Long id, String name, String ingredients, String instructions) {
         this.id = id;
         this.name = name;
         this.ingredients = ingredients;
@@ -34,7 +31,7 @@ public class Recipe {
         return name;
     }
 
-    public ArrayList<String> getIngredients() { return ingredients; }
+    public String getIngredients() { return ingredients; }
 
-    public ArrayList<String> getInstructions() { return instructions; }
+    public String getInstructions() { return instructions; }
 }
