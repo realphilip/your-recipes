@@ -21,15 +21,15 @@ public class HelloController {
         }
 
         @PostMapping("/createrecipe")
-        public String createRecipe(@ModelAttribute Recipe recipe, Model model){
+        public String createRecipe(@ModelAttribute Model model, Recipe recipe){
              recipeService.addRecipe(recipe);
              model.addAttribute("recipe", recipe);
              return "reciperesult";
         }
 
-        @DeleteMapping("/recipe/{inputId}")
+        /*@DeleteMapping("/recipe/{inputId}")
         public void removeRecipe(@PathVariable String inputId){
             Long recipeId = Long.parseLong(inputId);
-            recipeService.deleteById(recipeId);
-        }
+            recipeService.deleteById(recipeId);*/
+        
     }
