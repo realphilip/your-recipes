@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Create A Recipe Here</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2>Create your personal recipe</h2>
+<form action="#" th:action="@{/createrecipe}" th:object="${recipe}" method="post">
+    <p>Name: <input type="text" th:field="${recipe.name}" /></p>
+    <p>Ingredients: <input type="text" th:field="${recipe.ingredients}" /></p>
+    <p>Instructions: <input type="text" th:field="${recipe.instructions}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

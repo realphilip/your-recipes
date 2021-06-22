@@ -1,9 +1,13 @@
 package htw.berlin.webapp;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -11,14 +15,18 @@ public class HelloController {
 
         private final RecipeService recipeService = new RecipeService();
 
-        @GetMapping("/recipe")
-        public ArrayList<Recipe> recipeList(){
-            return recipeService.getAllRecipesAsList();
+        @GetMapping("/showmyrecipes")
+        public String recipeList(Model model){
+            List<Recipe> recipes = recipeService.getAllRecipesAsList();
+            model.addAttribute("recipes", recipes);
+            return "recipelist";
         }
 
-        @PostMapping("/recipe")
-        public void createRecipe(@RequestBody Recipe recipe){
+        @PostMapping("/createrecipe")
+        public String createRecipe(/*@AuthenticationPrincipal OidcUser user,*/ @ModelAttribute Recipe recipe, Model model){
              recipeService.addRecipe(recipe);
+             model.addAttribute("recipe", recipe);
+             return "reciperesult";
         }
 
         @DeleteMapping("/recipe/{inputId}")

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Create A Recipe Here</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>You created a recipe!</h2>
+<p th:text="'recipe name: ' + ${recipe.name}"></p>
+<p th:text="'ingredients: ' + ${recipe.ingredients}"></p>
+<p th:text="'instructions: ' + ${recipe.instructions}"></p>
+<a href="/listrecipes">See all your recipes</a>
+</body>
+</html>

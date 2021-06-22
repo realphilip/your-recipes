@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Create A Recipe Here</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2>All your personalized recipes in one view. Simply pick one and get cooking. </h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Ingredients</th>
+    <th>Instructions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${recipes.isEmpty()}">
+    <td colspan="2">You dont have any recipes yet</td>
+  </tr>
+  <tr th:each="recipe : ${recipes}">
+    <td><span th:text="${recipe.name}">Name</span></td>
+    <td><span th:text="${recipe.ingredients}">Ingredients</span></td>
+    <td><span th:text="${recipe.instructions}">Instructions</span></td>
+  </tr>
+  </tbody>
+</table>
+<a href="/createrecipe">Create another recipe right now</a>
+</body>
+</html>
