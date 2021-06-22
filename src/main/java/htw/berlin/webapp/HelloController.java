@@ -23,7 +23,7 @@ public class HelloController {
         }
 
         @PostMapping("/createrecipe")
-        public String createRecipe(/*@AuthenticationPrincipal OidcUser user,*/ @ModelAttribute Recipe recipe, Model model){
+        public String createRecipe(@ModelAttribute Recipe recipe, Model model){
              recipeService.addRecipe(recipe);
              model.addAttribute("recipe", recipe);
              return "reciperesult";
