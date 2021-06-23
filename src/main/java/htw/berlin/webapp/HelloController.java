@@ -20,8 +20,6 @@ public class HelloController {
         @RequestMapping("/")
         public String index(){
             String testEnvironmentURL = Optional.of(environment.getProperty("JDBC_DATABASE_URL")).orElse("not found");
-            String testEnvironmentUser = Optional.of(environment.getProperty("JDBC_DATABASE_USERNAME")).orElse("not found");
-            String testEnvironmentPW = Optional.of(environment.getProperty("JDBC_DATABASE_PASSWORD")).orElse("not found");
             return("Here is variable " + testEnvironmentURL);
         }
 
