@@ -9,7 +9,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
 
-    private String user;
+    //private String user;
 
     private  String name;
     private  String ingredients;
@@ -30,13 +30,13 @@ public class Recipe {
         return id;
     }
 
-    public String getUser() {
+    /*public String getUser() {
         return user;
     }
 
     public void setUser(String user) {
         this.user = user;
-    }
+    }*/
 
     public String getName() {
         return name;

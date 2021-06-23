@@ -17,10 +17,14 @@ public class RecipeService {
         recipeRepository.deleteById(recipeToDeleteId);
     }
 
-    public ArrayList<Recipe> getAllRecipesAsList(){
+    public ArrayList<Recipe> getAllRecipesAsList(/*String email*/){
         ArrayList<Recipe> allRecipesAsList = new ArrayList<>();
         var repositoryContent = recipeRepository.findAll();
-        repositoryContent.forEach(allRecipesAsList:: add);
+        for (Recipe i : repositoryContent){
+            /*if (i.getUser() != null && i.getUser().equals(email)) {*/
+                allRecipesAsList.add(i);
+            //}
+        }
         return allRecipesAsList;
     }
 
