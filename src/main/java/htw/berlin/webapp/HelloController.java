@@ -19,7 +19,7 @@ public class HelloController {
 
         @RequestMapping("/")
         public String index(){
-            String testEnvironmentURL = Optional.of(environment.getProperty("JDBC_DATABASE_URL")).orElse("not found");
+            String testEnvironmentURL = Optional.of(environment.getProperty("DATABASE_URL")).orElse("not found");
             return("Here is variable " + testEnvironmentURL);
         }
 
@@ -32,8 +32,9 @@ public class HelloController {
         }
 
         @PostMapping("/createrecipe")
-        public String createRecipe(@ModelAttribute Model model, Recipe recipe){
-             recipeService.addRecipe(recipe);
+        public String createRecipe( @ModelAttribute Model model, Recipe recipe){
+
+            recipeService.addRecipe(recipe);
              model.addAttribute("recipe", recipe);
              return "reciperesult";
         }
