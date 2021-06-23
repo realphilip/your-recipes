@@ -1,17 +1,30 @@
 package htw.berlin.webapp;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HelloController {
-
+        @Autowired
+        private Environment environment;
 
         private final RecipeService recipeService = new RecipeService();
+
+        @RequestMapping("/")
+        public String index(){
+            String testEnvironmentURL = Optional.of(environment.getProperty("JDBC_DATABASE_URL")).orElse("not found");
+            String testEnvironmentUser = Optional.of(environment.getProperty("JDBC_DATABASE_USERNAME")).orElse("not found");
+            String testEnvironmentPW = Optional.of(environment.getProperty("JDBC_DATABASE_PASSWORD")).orElse("not found");
+            return("Here is variable " + testEnvironmentURL);
+        }
+
 
         @GetMapping("/showmyrecipes")
         public String recipeList(Model model){
