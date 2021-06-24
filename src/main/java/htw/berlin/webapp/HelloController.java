@@ -33,6 +33,12 @@ public class HelloController {
             return "recipelist";
         }
 
+    @GetMapping("/createrecipe")
+    public String productForm(Model model) {
+        model.addAttribute("recipe", new Recipe());
+        return "createrecipe";
+    }
+
         @PostMapping("/createrecipe")
         public String createRecipe(/*@AuthenticationPrincipal OidcUser creator, */@ModelAttribute Model model, Recipe recipe){
              //recipe.setUser(creator.getEmail());
