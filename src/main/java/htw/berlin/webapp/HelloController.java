@@ -24,11 +24,6 @@ public class HelloController {
 
         private Map<String, LocalDateTime> usersLastAccess = new HashMap<>();
 
-        @RequestMapping("/")
-        public String index(){
-            String testEnvironmentURL = Optional.of(environment.getProperty("JDBC_DATABASE_URL")).orElse("not found");
-            return("Here is variable " + testEnvironmentURL);
-        }
 
 
         @GetMapping("/showmyrecipes")
