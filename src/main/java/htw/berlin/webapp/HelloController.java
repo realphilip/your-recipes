@@ -17,35 +17,53 @@ import java.util.Optional;
 
 @Controller
 public class HelloController {
+
         @Autowired
-        private Environment environment;
+        private RecipeService recipeService;
 
-        private final RecipeService recipeService = new RecipeService();
+        /*private Map<String, LocalDateTime> usersLastAccess = new HashMap<>();
 
-        private Map<String, LocalDateTime> usersLastAccess = new HashMap<>();
+    @GetMapping("/")
+    public String getCurrentUser(@AuthenticationPrincipal OidcUser user, Model model) {
+        String email = user.getEmail();
+
+        model.addAttribute("email", email);
+        model.addAttribute("lastAccess", usersLastAccess.get(email));
+
+        usersLastAccess.put(email, LocalDateTime.now());
+
+        return "welcome";
+    }*/
 
 
 
         @GetMapping("/showmyrecipes")
-        public String recipeList(/*@AuthenticationPrincipal OidcUser creator,*/ Model model){
+        public String recipeList(/*@AuthenticationPrincipal OidcUser creator, */Model model){
             List<Recipe> recipes = recipeService.getAllRecipesAsList(/*creator.getEmail()*/);
             model.addAttribute("recipes", recipes);
             return "recipelist";
         }
 
+
     @GetMapping("/createrecipe")
-    public String productForm(Model model) {
+    public String recipeForm(Model model) {
         model.addAttribute("recipe", new Recipe());
         return "createrecipe";
     }
 
         @PostMapping("/createrecipe")
-        public String createRecipe(/*@AuthenticationPrincipal OidcUser creator, */@ModelAttribute Model model, Recipe recipe){
-             //recipe.setUser(creator.getEmail());
+        public String createRecipe(/*@AuthenticationPrincipal OidcUser creator, */@ModelAttribute Recipe recipe, Model model){
+            // recipe.setUser(/*creator.getEmail()*/);
             recipeService.addRecipe(recipe);
              model.addAttribute("recipe", recipe);
              return "reciperesult";
         }
+
+    @GetMapping("/createvue")
+    public String dynamicForm(Model model) {
+        model.addAttribute("recipe", new Recipe());
+        return "createvue";
+    }
 
         /*@DeleteMapping("/recipe/{inputId}")
         public void removeRecipe(@PathVariable String inputId){

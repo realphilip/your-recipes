@@ -11,6 +11,7 @@ public class Recipe {
 
     //private String user;
 
+
     private  String name;
     private  String ingredients;
     private  String instructions;
@@ -30,13 +31,25 @@ public class Recipe {
         return id;
     }
 
-    /*public String getUser() {
+   /* public String getUser() {
         return user;
     }
 
     public void setUser(String user) {
         this.user = user;
     }*/
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
