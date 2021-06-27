@@ -1,4 +1,6 @@
-package htw.berlin.webapp;
+package htw.berlin.webapp.web;
+import htw.berlin.webapp.service.Recipe;
+import htw.berlin.webapp.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 //import org.springframework.security.core.annotation.AuthenticationPrincipal;

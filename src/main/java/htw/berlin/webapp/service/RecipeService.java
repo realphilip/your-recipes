@@ -1,4 +1,4 @@
-package htw.berlin.webapp;
+package htw.berlin.webapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,20 +19,14 @@ public class RecipeService {
         recipeRepository.deleteById(recipeToDeleteId);
     }
 
-    public ArrayList<Recipe> getAllRecipesAsList(/*String email*/) {
+    public ArrayList<Recipe> getAllRecipesAsList() {
         ArrayList<Recipe> allRecipesAsList = new ArrayList<>();
         var repositoryContent = recipeRepository.findAll();
         for (Recipe i : repositoryContent) {
-            // if (i.getUser() != null && i.getUser().equals(email)) {
             allRecipesAsList.add(i);
-            // }
             }
             return allRecipesAsList;
 
     }
-
-        public Long countRecipesInRepo(){
-            return recipeRepository.count();
-        }
     }
 

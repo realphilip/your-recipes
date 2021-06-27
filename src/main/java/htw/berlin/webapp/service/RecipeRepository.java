@@ -1,6 +1,7 @@
-package htw.berlin.webapp;
+package htw.berlin.webapp.service;
 
 
+import htw.berlin.webapp.service.Recipe;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

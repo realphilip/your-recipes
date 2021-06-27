@@ -1,19 +1,17 @@
-package htw.berlin.webapp;
+package htw.berlin.webapp.web;
 
 
+import htw.berlin.webapp.service.Recipe;
+import htw.berlin.webapp.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-//import org.springframework.security.core.annotation.AuthenticationPrincipal;
-//import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
+
+
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+
 
 @Controller
 public class HelloController {
@@ -21,19 +19,6 @@ public class HelloController {
         @Autowired
         private RecipeService recipeService;
 
-        /*private Map<String, LocalDateTime> usersLastAccess = new HashMap<>();
-
-    @GetMapping("/")
-    public String getCurrentUser(@AuthenticationPrincipal OidcUser user, Model model) {
-        String email = user.getEmail();
-
-        model.addAttribute("email", email);
-        model.addAttribute("lastAccess", usersLastAccess.get(email));
-
-        usersLastAccess.put(email, LocalDateTime.now());
-
-        return "welcome";
-    }*/
 
 
 
@@ -52,8 +37,7 @@ public class HelloController {
     }
 
         @PostMapping("/createrecipe")
-        public String createRecipe(/*@AuthenticationPrincipal OidcUser creator, */@ModelAttribute Recipe recipe, Model model){
-            // recipe.setUser(/*creator.getEmail()*/);
+        public String createRecipe(@ModelAttribute Recipe recipe, Model model){
             recipeService.addRecipe(recipe);
              model.addAttribute("recipe", recipe);
              return "reciperesult";
@@ -64,10 +48,5 @@ public class HelloController {
         model.addAttribute("recipe", new Recipe());
         return "createvue";
     }
-
-        /*@DeleteMapping("/recipe/{inputId}")
-        public void removeRecipe(@PathVariable String inputId){
-            Long recipeId = Long.parseLong(inputId);
-            recipeService.deleteById(recipeId);*/
         
     }
