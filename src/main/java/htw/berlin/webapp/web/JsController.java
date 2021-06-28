@@ -2,38 +2,25 @@ package htw.berlin.webapp.web;
 import htw.berlin.webapp.service.Recipe;
 import htw.berlin.webapp.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-//import org.springframework.security.core.annotation.AuthenticationPrincipal;
-//import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@RestController
 public class JsController {
 
-
-
-        @Autowired
-        private Environment env;
-
-        @RequestMapping("/env")
-        public String index() {
-            String testEnvValue = Optional.ofNullable(env.getProperty("TEST_VALUE")).orElse("Environment variable not found");
-            return "Hey there, I know environment variables, e.g. " + testEnvValue;
-        }
 
         @Autowired
         private RecipeService recipeService;
 
         @GetMapping("/getrecipes")
-        public List<Recipe> getRecipes(/*@AuthenticationPrincipal OidcUser user*/) {
-            return recipeService.getAllRecipesAsList(/*user.getEmail()*/);
+        public List<Recipe> getRecipes() {
+            return recipeService.getAllRecipesAsList();
         }
 
         @PostMapping("/postrecipes")
-        public Recipe createNewRecipe(/*@AuthenticationPrincipal OidcUser user, */@RequestBody Recipe newRecipe) {
-           //product.setOwner(user.getEmail());
+        public Recipe createNewRecipe(@RequestBody Recipe newRecipe) {
             return recipeService.addRecipe(newRecipe);
         }
 

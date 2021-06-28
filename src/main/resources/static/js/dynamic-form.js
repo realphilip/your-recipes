@@ -1,14 +1,14 @@
-export default {
-    props: ['title'],
+const app = Vue.createApp({});
+app.component('dynamic-form', {
     template: `
     <div>
-      <input v-model="nameField" placeholder="Name" type="text" ref="nameInput">
+      <input v-model="nameField" placeholder="Name" ref="nameInput">
       <input v-model="ingredientsField" placeholder="Ingredients" @keyup.enter="save()">
       <input v-model="instructionsField" placeholder="Instructions" @keyup.enter="save()">
       <button type="button" @click="save()">Save</button>
     </div>
     <div>
-      <h3> {{ title }} </h3>
+      <h3>Recipes for you:</h3>
         <table>
           <thead>
           <tr>
@@ -19,9 +19,9 @@ export default {
           </thead>
           <tbody>
           <tr v-if="items.length === 0">
-            <td colspan="2">No recipes yet</td>
+            <td colspan="2">There are no recipes so far. Be the first to create one.</td>
           </tr>
-          <tr v-for="total recipes">
+          <tr v-for="recipe in items">
             <td>{{recipe.name}}</td>
             <td>{{recipe.ingredients}}</td>
             <td>{{recipe.instructions}}</td>
@@ -61,13 +61,14 @@ export default {
                     this.ingredientsField = '';
                     this.instructionsField = '';
                     this.$refs.nameInput.focus();
-                    this.loadRecipes();
+                    this.loadProducts();
                 }, (error) => {
-                    console.log('Could not save recipe!');
+                    console.log('Your recipe could not be saved');
                 });
         },
     },
     mounted: function() {
         this.loadRecipes();
     }
-}
+});
+app.mount('#dynamic-form');

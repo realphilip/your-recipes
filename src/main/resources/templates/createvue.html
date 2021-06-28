@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-  <title>Create and view your personal recipes</title>
+  <title>Recipemaker 5000</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <script src="https://unpkg.com/vue@next" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="module" src="#" th:src="@{js/dynamic-form.js}" defer></script>
+  <script src="#" th:src="@{/js/dynamic-form.js}" defer></script>
 </head>
 <body>
-<h2>Create your personal recipe</h2>
-<div id="app">
-  <dynamic-form title="Here are all your recipes:"></dynamic-form>
+<h2>Find a recipe - or create one yourself</h2>
+<div id="dynamic-form">
+  <dynamic-form></dynamic-form>
 </div>
 </body>
 </html>
