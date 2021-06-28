@@ -29,6 +29,11 @@ public class HelloController {
             return "recipelist";
         }
 
+        @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
 
     @GetMapping("/createrecipe")
     public String recipeForm(Model model) {
