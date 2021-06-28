@@ -61,7 +61,7 @@ app.component('dynamic-form', {
                     this.ingredientsField = '';
                     this.instructionsField = '';
                     this.$refs.nameInput.focus();
-                    this.loadProducts();
+                    this.loadRecipes();
                 }, (error) => {
                     console.log('Your recipe could not be saved');
                 });
