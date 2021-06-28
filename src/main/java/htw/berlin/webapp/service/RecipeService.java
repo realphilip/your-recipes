@@ -28,5 +28,16 @@ public class RecipeService {
             return allRecipesAsList;
 
     }
+
+    public ArrayList<Recipe> findAll(Long id) {
+
+        var iterator = recipeRepository.findAll();
+
+        var recipes = new ArrayList<Recipe>();
+        for (Recipe r : iterator) {
+            if(r.getId()!=null && r.getId().equals(id)) recipes.add(r);
+        }
+        return recipes;
+    }
     }
 
