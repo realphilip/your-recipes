@@ -15,6 +15,17 @@ public class RecipeService {
         return recipeRepository.save(recipe);
     }
 
+    public ArrayList<Recipe> findAll(Long id) {
+
+        var iterator = recipeRepository.findAll();
+
+        var recipes = new ArrayList<Recipe>();
+        for (Recipe r : iterator) {
+            if(r.getId()!=null && r.getId().equals(id)) recipes.add(r);
+        }
+        return recipes;
+    }
+
     public void deleteById(Long recipeToDeleteId) {
         recipeRepository.deleteById(recipeToDeleteId);
     }
