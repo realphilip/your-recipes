@@ -1,9 +1,11 @@
 # your-recipes
-Website for everyone to store and share their favorite recipes in a simple and easy to use manner
+Website for us to store and share our favorite recipes in a simple and easy to use manner
 
-Pairprogrammed by: Philip Jach 574366 @realphilip @phalexander
+Tools: Java, Spring, Vue.js, JavaScript/HTML/CSS
 
-Huy Nam Nguyen 566103 @huynamnguyen
+Pairprogrammed by: Philip Jach @realphilip @phalexander
+
+Huy Nam Nguyen @huynamnguyen
 
 Use cases: 
 
